@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<odoo>
+    <record id="test_model_action_tag_list_view" model="ir.ui.view">
+            <field name="name">estate.property.tag.tree</field>
+            <field name="model">estate.property.tag</field>
+            <field name="arch" type="xml">
+                <tree string="Channel" editable="bottom">
+                    <field name="name" />
+                    <field name="color"/>
+                </tree>
+            </field>
+    </record>
+</odoo>

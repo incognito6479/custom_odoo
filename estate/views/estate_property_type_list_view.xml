@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<odoo>
+    <record id="test_model_action_type_list_view" model="ir.ui.view">
+            <field name="name">estate.property.type.tree</field>
+            <field name="model">estate.property.type</field>
+            <field name="arch" type="xml">
+                <tree string="Channel">
+                    <field name="name" />
+                    <field name="sequance" widget="handle"/>
+                    <!-- <field name="property_ids">
+                        <tree string="Type">
+                            <field name="name"/>
+                            <field name="expected_price"/>
+                            <field name="state"/>
+                        </tree>
+                    </field> -->
+                </tree>
+            </field>
+    </record>
+</odoo>

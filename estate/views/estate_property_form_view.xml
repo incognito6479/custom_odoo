@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+
+<odoo>
+	<record id="test_model_action_form_view" model="ir.ui.view">
+        <field name="name">estate.property.form</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <form string="Test">
+            	<header>
+            		<button name="property_status_sold" type="object" string="Sold" 
+            			attrs="{'invisible': ['|', ('state', '=', 'sold'), ('state', '=', 'canceled')]}" />
+            		<button name="property_status_cancel" type="object" string="Cancel" 
+            			attrs="{'invisible': ['|', ('state', '=', 'sold'), ('state', '=', 'canceled')]}" />
+
+            		<!-- <field name="state" widget="statusbar"/> -->
+            	</header>
+			    <sheet>
+			        <group>
+			            <group>
+			                <field name="name"/>
+			                <field name="tag_ids" editable="buttom" widget="many2many_tags" options="{'color_field': 'color'}"/>
+			            </group>
+			            <group>
+			                <field name="date_availability"/>
+			                <field name="state" />
+			            </group>
+			            <group>
+			                <field name="expected_price"/>
+			            </group>
+			            <group>
+			                <field name="best_offer"/>
+			            </group>
+			            <group>
+			                <field name="selling_price"/>
+			            </group>
+			            <group>
+			                <field name="property_type_id" options="{'no_create': True, 'no_open': True}"/>
+			            </group>
+			            <notebook>
+			                <page string="Description">
+			                	<group>
+			                		<field name="description"/>
+			                	</group>
+			                    <group>
+			                    	<field name="active"/>
+			                    </group>
+			                	<group>
+			                    	<field name="garden"/>
+			                	</group>
+			                	<group>
+			                    	<field name="garden_orientation" attrs="{'invisible': [('garden', '=', False)]}"/>
+			                	</group>
+			                	<group>
+			                    	<field name="garden_area" attrs="{'invisible': [('garden', '=', False)]}"/>
+			                	</group>
+			                	<group>
+			                    	<field name="living_area"/>
+			                	</group>
+			                	<group>
+			                		<field name="total_area" />
+			                	</group>
+			                </page>
+			                <page string="Offers">
+		                		<field name="offer_ids"
+		                		attrs="{'readonly': ['|', '|', ('state', '=', 'offer_accepted'), ('state', '=', 'sold'), ('state', '=', 'canceled')
+			                	]}" >
+			                		<tree editable="bottom"/>
+			                	</field>
+			                </page>
+			                <page string="Other Info">
+			                	<group>
+			                		<field name="salesperson"/>
+			                	</group>
+			                	<group>
+			                		<field name="buyer"/>
+			                	</group>
+			                </page>
+			            </notebook>
+			        </group>
+			    </sheet>
+			</form>
+        </field>
+    </record>
+</odoo>

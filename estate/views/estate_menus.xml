@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<odoo>
+    <menuitem id="test_menu_root" name="Test">
+        <menuitem id="test_first_level_menu" name="First Level">
+            <menuitem id="test_model_menu_action" action="test_model_action"/>
+        </menuitem>
+    </menuitem>
+    <menuitem id="test_menu_root" name="Test">
+        <menuitem id="test_second_level_menu" name="Settings">
+            <menuitem id="test_model_menu_type_action" action="test_model_type_action"/>
+            <menuitem id="test_model_menu_tag_action" action="test_model_tag_action"/>
+        </menuitem>
+    </menuitem> 
+    <!-- <menuitem id="test_menu_root" name="Test">
+        <menuitem id="test_third_level_menu" name="Inherited Users Model">
+            <menuitem id="res_users_view_form_menu" action="res_users_view_form"/>
+        </menuitem>
+    </menuitem> -->
+</odoo>

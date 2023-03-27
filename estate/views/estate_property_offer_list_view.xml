@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<odoo>
+    <record id="test_model_action_offer_list_view" model="ir.ui.view">
+            <field name="name">estate.property.offer.tree</field>
+            <field name="model">estate.property.offer</field>
+            <field name="arch" type="xml">
+                <tree string="Channel" editable="bottom" decoration-danger="status=='refused'"
+                    decoration-success="status=='accepted'">
+                    <field name="price"/>
+                    <field name="partner_id"/>
+                    
+                    <button name="confirm_property_offer" type="object" icon="fa-check" 
+                    attrs="{'invisible': ['|', ('status', '=', 'refused'), ('status', '=', 'accepted')]}" />
+                    <button name="cancel_property_offer" type="object" icon="fa-times"
+                    attrs="{'invisible': ['|', ('status', '=', 'refused'), ('status', '=', 'accepted')]}" />
+                    
+                    <field name="status"/>
+                    <field name="validity"/>
+                    <field name="date_deadline"/>
+                </tree>
+            </field>
+    </record>
+</odoo>

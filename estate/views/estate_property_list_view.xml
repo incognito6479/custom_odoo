@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<odoo>
+    <record id="test_model_action_list_view" model="ir.ui.view">
+            <field name="name">estate.property.tree</field>
+            <field name="model">estate.property</field>
+            <field name="arch" type="xml">
+                <tree string="Channel" decoration-muted="state=='sold'"
+                    decoration-success="state=='offer_received' or state=='offer_accepted'"
+                    decoration-bf="state=='offer_accepted'">
+                    <field name="name"/>
+                    <field name="selling_price"/>
+                    <field optional="hidden" name="date_availability"/>
+                    <field name="bedrooms"/>
+                    <field optional="hidden" name="state"/>
+                    <field name="living_area"/>
+                </tree>
+            </field>
+    </record>
+</odoo>

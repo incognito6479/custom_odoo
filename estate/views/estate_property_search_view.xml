@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<odoo>
+	<record id="test_model_action_search_view" model="ir.ui.view">
+        <field name="name">estate.property.search</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <search string="Test Search">
+                <field name="name" string="Name" />
+                <field name="postcode" string="Postcode" />
+                <field name="property_type_id" string="Type" />
+                <field name="living_area" string="Living Area" 
+                    filter_domain="['|', ('living_area', '=', self), ('living_area', '>', self)]"/>
+                <separator/>
+                <filter name="active" string="Available" domain="[('active', '=', True)]" />
+                <filter string="State" name="state" domain="['|', ('state', '=', 'new'), ('state', '=', 'offer_received')]"/>
+                <group expand="1" string="Group By">
+                    <filter string="Postcode" name="postcode" context="{'group_by':'postcode', 'residual_visible':True}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+</odoo>
